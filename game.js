@@ -12,6 +12,11 @@ const resetbtn = document.getElementById("reset");
 guessbtn.addEventListener("click", () => {
   let guessNum = Number(guessedNumber.value);
   if (gameOver) return;
+   if (guessedNumber.value === "") return;
+   if (guessNum < 1 || guessNum > 100) {
+    info.textContent = "Please enter a number between 1 and 100!";
+    return;
+}
   count++;
   AttemptEle.textContent = count;
 
